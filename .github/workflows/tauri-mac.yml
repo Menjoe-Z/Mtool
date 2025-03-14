@@ -1,0 +1,33 @@
+name: Build Tauri macOS
+
+on:
+  push:
+    tags:
+      - 'v*' # 触发条件：推送 v1.0.0 这种 tag
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  build-mac:
+    runs-on: macos-latest # 必须在 macOS 运行
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Rust
+        run: |
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          rustup target add aarch64-apple-darwin x86_64-apple-darwin
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Tauri for macOS
+        run: npm run tauri build
+        env:
+          MACOSX_DEPLOYMENT_TARGET: 10.13 # 最低支持 macOS 10.13
