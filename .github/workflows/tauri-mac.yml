@@ -1,4 +1,4 @@
-name: Build Tauri App for macOS
+name: Build Tauri App for macOS (pnpm)
 
 on:
   push:
@@ -16,17 +16,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: 'pnpm'
 
-      - name: Install Rust
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Setup Rust
         uses: dtolnay/rust-toolchain@stable
         with:
           targets: aarch64-apple-darwin
 
       - name: Install dependencies
-        run: |
-          npm install
-          npm install --save-dev @tauri-apps/cli
+        run: pnpm install
 
       - name: Build Tauri app
-        run: |
-          npm run tauri build
+        run: pnpm tauri build
