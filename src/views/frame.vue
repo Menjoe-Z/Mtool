@@ -13,6 +13,5 @@
   </a-layout>
 </template>
 <script setup lang="ts">
-import Header from "./header.vue";
-import Menu from "../menu.vue";
+import Menu from "./menu.vue";
 </script>

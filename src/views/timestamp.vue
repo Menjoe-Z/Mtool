@@ -83,7 +83,7 @@ onUnmounted(() => {
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
-const toTimestampIntl = (dateString, timeZone) => {
+const toTimestampIntl = (dateString: string, timeZone:string) => {
   return dayjs.tz(dateString, "YYYY-MM-DD HH:mm:ss", timeZone).valueOf();
 }
 
@@ -93,9 +93,7 @@ const formatDateIntl = (timestamp: number, timeZone : string) => {
 /** 【end】公共模块*/
 
 /** 【start】展示和选择时区*/
-const timezones = Intl.supportedValuesOf
-    ? Intl.supportedValuesOf("timeZone") // 现代浏览器
-    : ["UTC", "America/New_York", "Europe/London", "Asia/Shanghai", "Asia/Tokyo", "Australia/Sydney"]; // 兼容性方案
+const timezones = ["UTC", "America/New_York", "Europe/London", "Asia/Shanghai", "Asia/Tokyo", "Australia/Sydney"]; // 兼容性方案
 // 默认时区
 const selectedTimezone = ref(Intl.DateTimeFormat().resolvedOptions().timeZone);
 const currentTz = () => {
@@ -105,16 +103,16 @@ const currentTz = () => {
 
 /** 【start】刷新当前时间*/
 const currentTs = ref(Date.now())
-let timer = null;
+const timer = ref<number | null>(null);
 const startCurrentTs = () => {
   stopCurrentTs()
-  timer = setInterval(() => {
+  timer.value = setInterval(() => {
     currentTs.value = Date.now();
   }, 500);
 }
 const stopCurrentTs = () => {
-  if (timer != null) {
-    clearInterval(timer)
+  if (timer.value != null) {
+    clearInterval(timer.value)
   }
 }
 const refreshCurrentTs = () => {

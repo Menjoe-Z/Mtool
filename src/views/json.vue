@@ -1,7 +1,12 @@
 <template>
   <a-row :gutter="24" style="height: 85vh;">
     <a-col :span="24" style="height: 84vh;">
-      <a-split style="height: 100%; width: 100%; min-width: 500px; border: 1px solid var(--color-border);" >
+      <a-split
+          :style="{ height: '84vh', width: '100%', minWidth: '500px', border: '1px solid var(--color-border)' }"
+          direction="horizontal"
+          :min="0.2"
+          :max="0.8"
+      >
         <template #first>
           <a-typography-paragraph style="height: 100%; margin: 0; display: flex;">
             <a-textarea v-model="originJson" placeholder="Please enter something" style="flex: 1; height: 100%;" />
@@ -45,7 +50,7 @@ const formatJson = () => {
   } catch (e) {
     Modal.error({
       title: '错误提示',
-      content: e
+      content: JSON.stringify(e)
     });
 
   }
@@ -69,3 +74,10 @@ const clearJson = () => {
 }
 
 </script>
+<style scoped>
+.split-container {
+  height: 85vh;
+  width: 100%;
+  min-width: 500px;
+}
+</style>
