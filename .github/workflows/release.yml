@@ -12,8 +12,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [macos-latest, windows-latest]
+        # platform: [macos-latest, windows-latest]
         # platform: [macos-latest, ubuntu-20.04, windows-latest]
+        include:
+          # - platform: 'macos-latest' # for Arm based macs (M1 and above).
+            # args: '--target aarch64-apple-darwin'
+          - platform: 'macos-11' # for Intel based macs.
+            args: '--target x86_64-apple-darwin'
+          # - platform: 'ubuntu-22.04'
+            # args: ''
+          - platform: 'windows-2019'
+            args: ''
     runs-on: ${{ matrix.platform }}
 
     steps:
