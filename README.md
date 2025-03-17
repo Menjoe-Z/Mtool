@@ -1,16 +1,55 @@
-# Tauri + Vue + TypeScript
+# Mtool
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Mtool 是一个多功能工具集，提供 JSON 格式化、时间戳转换和随机密码生成等实用功能。
 
-## Recommended IDE Setup
+## 功能介绍
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+### 1. JSON 序列化
+- 允许输入 JSON 文本，并进行格式化美化。
+- 方便复制处理后的 JSON 数据。
 
-## Type Support For `.vue` Imports in TS
+### 2. 时间戳转换
+- 显示当前时间及 Unix 时间戳。
+- 支持将 Unix 时间戳转换为标准日期格式。
+- 支持手动输入时间戳进行转换。
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
+### 3. 随机密码生成
+- 可自定义密码长度。
+- 可选择包含数字和特殊符号。
+- 一键复制密码。
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+## 截图
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+### JSON 序列化
+![JSON](./mnt/data/json.png)
+
+### 时间戳转换
+![时间戳](./mnt/data/ts.png)
+
+### 随机密码生成
+![随机密码](./mnt/data/rp.png)
+
+## 安装和运行
+
+### 1. 克隆项目
+```sh
+git clone https://github.com/Menjoe-Z/Mtool.git
+cd Mtool
+```
+
+### 2. 安装依赖
+```sh
+pnpm install
+```
+
+### 3. 运行项目
+```sh
+pnpm run tauri dev
+```
+
+## 贡献
+欢迎提交 Issue 或 Pull Request 来改进本项目。
+
+## 许可证
+本项目采用 MIT 许可证，详情请查看 [LICENSE](LICENSE) 文件。
+
