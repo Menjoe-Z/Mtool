@@ -21,13 +21,13 @@ Mtool 是一个多功能工具集，提供 JSON 格式化、时间戳转换和�
 ## 截图
 
 ### JSON 序列化
-![JSON](./mnt/data/json.png)
+![JSON](https://github.com/Menjoe-Z/Mtool/blob/master/assets/json.png)
 
 ### 时间戳转换
-![时间戳](./mnt/data/ts.png)
+![时间戳](https://github.com/Menjoe-Z/Mtool/blob/master/assets/ts.png)
 
 ### 随机密码生成
-![随机密码](./mnt/data/rp.png)
+![随机密码](https://github.com/Menjoe-Z/Mtool/blob/master/assets/rp.png)
 
 ## 安装和运行
 
