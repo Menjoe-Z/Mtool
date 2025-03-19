@@ -9,12 +9,12 @@
       >
         <template #first>
           <a-typography-paragraph style="height: 100%; margin: 0; display: flex;">
-            <a-textarea v-model="originJson" placeholder="Please enter something" style="flex: 1; height: 100%;" />
+            <a-textarea v-model="originJson" placeholder="输入原始文本..."/>
           </a-typography-paragraph>
         </template>
         <template #second>
           <a-typography-paragraph style="height: 100%; margin: 0; display: flex;">
-            <a-textarea id="codeView" :model-value="distJson" placeholder="" style="flex: 1; height: 100%;" />
+            <a-textarea :model-value="distJson" placeholder="格式化后的json"/>
           </a-typography-paragraph>
         </template>
       </a-split>
