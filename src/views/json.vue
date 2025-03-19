@@ -48,11 +48,12 @@ const formatJson = () => {
   try {
     jsonParse = JSON.parse(tempJson)
   } catch (e) {
+    const errorMessage = e instanceof Error ? e.message : "JSON 解析失败";
     Modal.error({
-      title: '错误提示',
-      content: JSON.stringify(e)
+      title: "错误提示",
+      content: errorMessage,
     });
-
+    return;
   }
   distJson.value = JSON.stringify(jsonParse, null, 2)
 }
