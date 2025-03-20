@@ -1,8 +1,8 @@
 <template>
-  <a-row :gutter="24" style="height: 85vh;">
-    <a-col :span="24" style="height: 84vh;">
+  <a-row :gutter="24" style="height: 84vh;">
+    <a-col :span="24" style="height: 83vh;">
       <a-split
-          :style="{ height: '84vh', width: '100%', minWidth: '500px', border: '1px solid var(--color-border)' }"
+          :style="{ height: '83vh', width: '100%', minWidth: '500px', border: '1px solid var(--color-border)' }"
           direction="horizontal"
           :min="0.2"
           :max="0.8"

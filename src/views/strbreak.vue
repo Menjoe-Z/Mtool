@@ -1,8 +1,8 @@
 <template>
-  <a-row :gutter="24" style="height: 85vh;">
-    <a-col :span="24" style="height: 84vh;">
+  <a-row :gutter="24" style="height: 83vh;">
+    <a-col :span="24" style="height: 82vh;">
       <a-split
-          :style="{ height: '84vh', width: '100%', minWidth: '500px', border: '1px solid var(--color-border)' }"
+          :style="{ height: '82vh', width: '100%', minWidth: '500px', border: '1px solid var(--color-border)' }"
           direction="horizontal"
           :min="0.2"
           :max="0.8"
@@ -21,18 +21,26 @@
     </a-col>
   </a-row>
   <a-row :gutter="24">
-    <a-col :span="10"></a-col>
-    <a-col :span="8">
-      <a-select v-model="textSeparator" style="min-width: 100px;" placeholder="选择默认的分隔符或者自定义..." allow-create>
-        <a-option value=" ">空格</a-option>
-        <a-option value="\t">\t</a-option>
-        <a-option value=",">逗号</a-option>
-        <a-option value=";">分号</a-option>
-        <a-option value="。">句号</a-option>
-        <a-option value=".">点</a-option>
-        <a-option value="(">括号(</a-option>
-        <a-option value=")">括号)</a-option>
-      </a-select>
+    <a-col :span="9"></a-col>
+    <a-col :span="9">
+      <a-form auto-label-width>
+        <a-form-item label="分隔符(支持正则): ">
+          <a-select v-model="textSeparator"
+                    placeholder="选择默认的分隔符或者输入..."
+                    :allow-search="{ retainInputValue: true }"
+                    v-model:input-value="newTextSeparator"
+                    allow-create allow-clear>
+            <a-option value=" ">空格</a-option>
+            <a-option value="\t">制表符</a-option>
+            <a-option value=",">逗号</a-option>
+            <a-option value=";">分号</a-option>
+            <a-option value="。">句号</a-option>
+            <a-option value="\.">点</a-option>
+            <a-option value="\(">括号(</a-option>
+            <a-option value="\)">括号)</a-option>
+          </a-select>
+        </a-form-item>
+      </a-form>
     </a-col>
     <a-col :span="6">
       <a-space>
@@ -50,6 +58,7 @@ import {Message, Modal} from "@arco-design/web-vue";
 
 const originText = ref('')
 const textSeparator = ref('')
+const newTextSeparator = ref('')
 const distText = ref('')
 
 const formatJson = () => {
@@ -59,7 +68,9 @@ const formatJson = () => {
   }
   let tempDistText = '';
   try {
-console.log(tempText)
+    if (textSeparator.value === '') {
+      textSeparator.value = newTextSeparator.value
+    }
     const regex = new RegExp(textSeparator.value);
     let splitArr = tempText.split(regex);
     for (let i = 0; i < splitArr.length; i++) {
