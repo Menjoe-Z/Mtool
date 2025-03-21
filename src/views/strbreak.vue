@@ -21,29 +21,24 @@
     </a-col>
   </a-row>
   <a-row :gutter="24">
-    <a-col :span="9"></a-col>
-    <a-col :span="9">
-      <a-form auto-label-width>
-        <a-form-item label="分隔符(支持正则): ">
-          <a-select v-model="textSeparator"
-                    placeholder="选择默认的分隔符或者输入..."
-                    :allow-search="{ retainInputValue: true }"
-                    v-model:input-value="newTextSeparator"
-                    allow-create allow-clear>
-            <a-option value=" ">空格</a-option>
-            <a-option value="\t">制表符</a-option>
-            <a-option value=",">逗号</a-option>
-            <a-option value=";">分号</a-option>
-            <a-option value="。">句号</a-option>
-            <a-option value="\.">点</a-option>
-            <a-option value="\(">括号(</a-option>
-            <a-option value="\)">括号)</a-option>
-          </a-select>
-        </a-form-item>
-      </a-form>
-    </a-col>
-    <a-col :span="6">
+    <a-col :span="8"></a-col>
+    <a-col :span="16">
       <a-space>
+        <a-typography-text>分隔符(支持正则): </a-typography-text>
+        <a-select v-model="textSeparator"
+                  placeholder="选择或者输入..."
+                  :allow-search="{ retainInputValue: true }"
+                  v-model:input-value="newTextSeparator"
+                  style="width: 220px;" allow-clear>
+          <a-option value=" ">空格</a-option>
+          <a-option value="\t">制表符</a-option>
+          <a-option value=",">逗号</a-option>
+          <a-option value=";">分号</a-option>
+          <a-option value="。">句号</a-option>
+          <a-option value="\.">点</a-option>
+          <a-option value="\(">括号(</a-option>
+          <a-option value="\)">括号)</a-option>
+        </a-select>
         <a-button @click="formatJson" type="primary">格式</a-button>
         <a-button @click="clearJson">清除</a-button>
         <a-button @click="copyToClipboard">复制</a-button>
