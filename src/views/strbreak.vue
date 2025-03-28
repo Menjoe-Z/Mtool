@@ -29,7 +29,7 @@
                   placeholder="选择或者输入..."
                   :allow-search="{ retainInputValue: true }"
                   v-model:input-value="newTextSeparator"
-                  style="width: 220px;" allow-clear>
+                  style="width: 260px;" allow-clear>
           <a-option value=" ">空格</a-option>
           <a-option value="\t">制表符</a-option>
           <a-option value=",">逗号</a-option>
