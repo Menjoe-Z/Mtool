@@ -18,6 +18,9 @@ importers:
       '@arco-design/web-vue':
         specifier: ^2.57.0
         version: 2.57.0(vue@3.5.13(typescript@5.6.3))
+      '@tauri-apps/api':
+        specifier: ^2
+        version: 2.4.0
       '@tauri-apps/cli':
         specifier: ^2
         version: 2.3.1
@@ -318,6 +321,9 @@ packages:
     resolution: {integrity: sha512-PIQeY5XDkrOysbQblSW7v3l1MDZzkTEzAfTPkj5VAu3FW8fS4ynyLg2sINp0fp3SjZ8xkRYpLqoKcYqAkhU1dw==}
     cpu: [x64]
     os: [win32]
+
+  '@tauri-apps/api@2.4.0':
+    resolution: {integrity: sha512-F1zXTsmwcCp+ocg6fbzD/YL0OHeSG1eynCag1UNlX2tD5+dlXy7eRbTu9cAcscPjcR7Nix7by2wiv/+VfWUieg==}
 
   '@tauri-apps/cli-darwin-arm64@2.3.1':
     resolution: {integrity: sha512-TOhSdsXYt+f+asRU+Dl+Wufglj/7+CX9h8RO4hl5k7D6lR4L8yTtdhpS7btaclOMmjYC4piNfJE70GoxhOoYWw==}
@@ -785,6 +791,8 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.35.0':
     optional: true
+
+  '@tauri-apps/api@2.4.0': {}
 
   '@tauri-apps/cli-darwin-arm64@2.3.1':
     optional: true

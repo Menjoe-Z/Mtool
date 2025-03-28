@@ -14,7 +14,9 @@
       {
         "title": "Mtool",
         "width": 980,
-        "height": 600
+        "height": 600,
+        "resizable": true,
+        "decorations": true
       }
     ],
     "security": {
