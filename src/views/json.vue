@@ -1,20 +1,20 @@
 <template>
-  <a-row :gutter="24" style="height: 85vh;">
-    <a-col :span="24" style="height: 84vh;">
+  <a-row :gutter="24" style="height: 84vh;">
+    <a-col :span="24" style="height: 83vh;">
       <a-split
-          :style="{ height: '84vh', width: '100%', minWidth: '500px', border: '1px solid var(--color-border)' }"
+          :style="{ height: '83vh', width: '100%', minWidth: '500px', border: '1px solid var(--color-border)' }"
           direction="horizontal"
           :min="0.2"
           :max="0.8"
       >
         <template #first>
           <a-typography-paragraph style="height: 100%; margin: 0; display: flex;">
-            <a-textarea v-model="originJson" placeholder="Please enter something" style="flex: 1; height: 100%;" />
+            <a-textarea v-model="originJson" placeholder="输入原始文本..."/>
           </a-typography-paragraph>
         </template>
         <template #second>
           <a-typography-paragraph style="height: 100%; margin: 0; display: flex;">
-            <a-textarea id="codeView" :model-value="distJson" placeholder="" style="flex: 1; height: 100%;" />
+            <a-textarea :model-value="distJson" placeholder="格式化后的json"/>
           </a-typography-paragraph>
         </template>
       </a-split>
@@ -48,11 +48,12 @@ const formatJson = () => {
   try {
     jsonParse = JSON.parse(tempJson)
   } catch (e) {
+    const errorMessage = e instanceof Error ? e.message : "JSON 解析失败";
     Modal.error({
-      title: '错误提示',
-      content: JSON.stringify(e)
+      title: "错误提示",
+      content: errorMessage,
     });
-
+    return;
   }
   distJson.value = JSON.stringify(jsonParse, null, 2)
 }

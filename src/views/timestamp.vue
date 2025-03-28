@@ -74,30 +74,38 @@ import {onUnmounted, ref} from "vue";
 import {Message} from "@arco-design/web-vue";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
-import timezone from "dayjs/plugin/timezone";
 
 /** 【start】公共模块*/
 onUnmounted(() => {
   stopCurrentTs()
 });
-
 dayjs.extend(utc);
-dayjs.extend(timezone);
+
 const toTimestampIntl = (dateString: string, timeZone:string) => {
-  return dayjs.tz(dateString, "YYYY-MM-DD HH:mm:ss", timeZone).valueOf();
+  const offset = parseInt(timeZone.replace("UTC", ""), 10);
+  return dayjs(dateString).utcOffset(offset * 60).valueOf()
 }
 
 const formatDateIntl = (timestamp: number, timeZone : string) => {
-  return dayjs(Number(timestamp)).tz(timeZone).format("YYYY-MM-DD HH:mm:ss");
+  const offset = parseInt(timeZone.replace("UTC", ""), 10);
+  return dayjs(Number(timestamp)).utcOffset(offset * 60).format("YYYY-MM-DD HH:mm:ss");
 }
+
+const getCurrentTz = () => {
+  const offsetMinutes = dayjs().utcOffset();
+  const offsetHours = offsetMinutes / 60;
+  const timezoneString = `UTC${offsetHours >= 0 ? "+" : ""}${offsetHours}`;
+  return timezoneString;
+}
+
 /** 【end】公共模块*/
 
 /** 【start】展示和选择时区*/
-const timezones = ["UTC", "America/New_York", "Europe/London", "Asia/Shanghai", "Asia/Tokyo", "Australia/Sydney"]; // 兼容性方案
+const timezones = Array.from({ length: 25 }, (_, i) => `UTC${i - 12 >= 0 ? '+' : ''}${i - 12}`);
 // 默认时区
-const selectedTimezone = ref(Intl.DateTimeFormat().resolvedOptions().timeZone);
+const selectedTimezone = ref(getCurrentTz());
 const currentTz = () => {
-  selectedTimezone.value = Intl.DateTimeFormat().resolvedOptions().timeZone
+  selectedTimezone.value = getCurrentTz()
 }
 /** 【end】展示和选择时区*/
 

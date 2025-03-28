@@ -1,5 +1,7 @@
 <template>
-  <a-tabs default-active-key="1">
+  <a-tabs lazy-load="true"
+          justify="true"
+          animation="true">
     <a-tab-pane key="1" title="Json序列">
       <Json/>
     </a-tab-pane>
@@ -7,13 +9,18 @@
       <timestamp/>
     </a-tab-pane>
     <a-tab-pane key="3" title="随机密码">
-      <Ramdompwd/>
+      <RandomPwd/>
     </a-tab-pane>
-<!--    <a-tab-pane key="4" title="Json转Bean">Json转Bean</a-tab-pane>-->
+    <a-tab-pane key="4" title="字符串换行">
+      <Strbreak/>
+    </a-tab-pane>
   </a-tabs>
 </template>
 <script setup lang="ts">
 import Json from "./json.vue";
 import Timestamp from "./timestamp.vue";
-import Ramdompwd from "./ramdompwd.vue";
+import RandomPwd from "./randompwd.vue";
+import Strbreak from "./strbreak.vue";
+
+
 </script>

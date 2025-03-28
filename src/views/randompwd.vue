@@ -42,7 +42,6 @@ import { ref } from "vue";
 import {Message } from "@arco-design/web-vue";
 
 // 绑定数据
-const passwordType = ref("random");
 const length = ref(15);
 const includeNumbers = ref(true);
 const includeSymbols = ref(true);
