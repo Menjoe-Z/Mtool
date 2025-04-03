@@ -14,6 +14,9 @@ importers:
       vue:
         specifier: ^3.5.13
         version: 3.5.13(typescript@5.6.3)
+      vue-i18n:
+        specifier: ^11.1.2
+        version: 11.1.2(vue@3.5.13(typescript@5.6.3))
     devDependencies:
       '@arco-design/web-vue':
         specifier: ^2.57.0
@@ -213,6 +216,18 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@intlify/core-base@11.1.2':
+    resolution: {integrity: sha512-nmG512G8QOABsserleechwHGZxzKSAlggGf9hQX0nltvSwyKNVuB/4o6iFeG2OnjXK253r8p8eSDOZf8PgFdWw==}
+    engines: {node: '>= 16'}
+
+  '@intlify/message-compiler@11.1.2':
+    resolution: {integrity: sha512-T/xbNDzi+Yv0Qn2Dfz2CWCAJiwNgU5d95EhhAEf4YmOgjCKktpfpiUSmLcBvK1CtLpPQ85AMMQk/2NCcXnNj1g==}
+    engines: {node: '>= 16'}
+
+  '@intlify/shared@11.1.2':
+    resolution: {integrity: sha512-dF2iMMy8P9uKVHV/20LA1ulFLL+MKSbfMiixSmn6fpwqzvix38OIc7ebgnFbBqElvghZCW9ACtzKTGKsTGTWGA==}
+    engines: {node: '>= 16'}
 
   '@jridgewell/sourcemap-codec@1.5.0':
     resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
@@ -428,6 +443,9 @@ packages:
   '@vue/compiler-vue2@2.7.16':
     resolution: {integrity: sha512-qYC3Psj9S/mfu9uVi5WvNZIzq+xnXMhOwbTFKKDD7b1lhpnn71jXSFdTQ+WsIEk0ONCd7VV2IMm7ONl6tbQ86A==}
 
+  '@vue/devtools-api@6.6.4':
+    resolution: {integrity: sha512-sGhTPMuXqZ1rVOk32RylztWkfXTRhuS7vgAKv0zjqk8gbsHkJ7xfFf+jbySxt7tWObEJwyKaHMikV/WGDiQm8g==}
+
   '@vue/language-core@2.2.8':
     resolution: {integrity: sha512-rrzB0wPGBvcwaSNRriVWdNAbHQWSf0NlGqgKHK5mEkXpefjUlVRP62u03KvwZpvKVjRnBIQ/Lwre+Mx9N6juUQ==}
     peerDependencies:
@@ -613,6 +631,12 @@ packages:
   vscode-uri@3.1.0:
     resolution: {integrity: sha512-/BpdSx+yCQGnCvecbyXdxHDkuk55/G3xwnC0GqY4gmQ3j+A+g8kzzgB4Nk/SINjqn6+waqw3EgbVF2QKExkRxQ==}
 
+  vue-i18n@11.1.2:
+    resolution: {integrity: sha512-MfdkdKGUHN+jkkaMT5Zbl4FpRmN7kfelJIwKoUpJ32ONIxdFhzxZiLTVaAXkAwvH3y9GmWpoiwjDqbPIkPIMFA==}
+    engines: {node: '>= 16'}
+    peerDependencies:
+      vue: ^3.0.0
+
   vue-tsc@2.2.8:
     resolution: {integrity: sha512-jBYKBNFADTN+L+MdesNX/TB3XuDSyaWynKMDgR+yCSln0GQ9Tfb7JS2lr46s2LiFUT1WsmfWsSvIElyxzOPqcQ==}
     hasBin: true
@@ -732,6 +756,18 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.1':
     optional: true
+
+  '@intlify/core-base@11.1.2':
+    dependencies:
+      '@intlify/message-compiler': 11.1.2
+      '@intlify/shared': 11.1.2
+
+  '@intlify/message-compiler@11.1.2':
+    dependencies:
+      '@intlify/shared': 11.1.2
+      source-map-js: 1.2.1
+
+  '@intlify/shared@11.1.2': {}
 
   '@jridgewell/sourcemap-codec@1.5.0': {}
 
@@ -890,6 +926,8 @@ snapshots:
     dependencies:
       de-indent: 1.0.2
       he: 1.2.0
+
+  '@vue/devtools-api@6.6.4': {}
 
   '@vue/language-core@2.2.8(typescript@5.6.3)':
     dependencies:
@@ -1077,6 +1115,13 @@ snapshots:
       fsevents: 2.3.3
 
   vscode-uri@3.1.0: {}
+
+  vue-i18n@11.1.2(vue@3.5.13(typescript@5.6.3)):
+    dependencies:
+      '@intlify/core-base': 11.1.2
+      '@intlify/shared': 11.1.2
+      '@vue/devtools-api': 6.6.4
+      vue: 3.5.13(typescript@5.6.3)
 
   vue-tsc@2.2.8(typescript@5.6.3):
     dependencies:
