@@ -9,12 +9,12 @@
       >
         <template #first>
           <a-typography-paragraph style="height: 100%; margin: 0; display: flex;">
-            <a-textarea v-model="originJson" placeholder="输入原始文本..."/>
+            <a-textarea v-model="originJson" :placeholder="$t('json.placeholder01')"/>
           </a-typography-paragraph>
         </template>
         <template #second>
           <a-typography-paragraph style="height: 100%; margin: 0; display: flex;">
-            <a-textarea :model-value="distJson" placeholder="格式化后的json"/>
+            <a-textarea :model-value="distJson" :placeholder="$t('json.placeholder02')"/>
           </a-typography-paragraph>
         </template>
       </a-split>
@@ -24,9 +24,9 @@
     <a-col :span="16"></a-col>
     <a-col :span="6">
       <a-space>
-        <a-button @click="formatJson" type="primary">格式</a-button>
-        <a-button @click="clearJson">清除</a-button>
-        <a-button @click="copyToClipboard">复制</a-button>
+        <a-button @click="formatJson" type="primary">{{ $t('format') }}</a-button>
+        <a-button @click="clearJson">{{ $t('clean') }}</a-button>
+        <a-button @click="copyToClipboard">{{ $t('copy') }}</a-button>
       </a-space>
     </a-col>
   </a-row>
@@ -35,6 +35,8 @@
 
 import {ref} from "vue";
 import {Message, Modal} from "@arco-design/web-vue";
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 
 const originJson = ref('')
 const distJson = ref('')
@@ -48,9 +50,9 @@ const formatJson = () => {
   try {
     jsonParse = JSON.parse(tempJson)
   } catch (e) {
-    const errorMessage = e instanceof Error ? e.message : "JSON 解析失败";
+    const errorMessage = e instanceof Error ? e.message : t('json.format.error');
     Modal.error({
-      title: "错误提示",
+      title: t('error.alert'),
       content: errorMessage,
     });
     return;
@@ -63,7 +65,7 @@ const copyToClipboard = () => {
     return
   }
   navigator.clipboard.writeText(distJson.value).then(() => {
-    Message.info('复制成功!')
+    Message.info(`${t('copied')}!`)
   }).catch(err => {
     console.error("Copy failed:", err);
   });

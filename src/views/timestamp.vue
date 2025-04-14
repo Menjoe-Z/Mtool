@@ -5,59 +5,59 @@
         <div></div>
       </a-col>
       <a-col :span="18">
-        <a-card title="当前时间">
-          <a-space>
-            <a-typography-text strong>当前时区:</a-typography-text>
-            <a-select v-model="selectedTimezone" placeholder="请选择时区">
+        <a-card :title="$t('time.current')">
+          <a-space align="baseline">
+            <a-typography-text strong>{{$t('time.timezone')}}:</a-typography-text>
+            <a-select v-model="selectedTimezone" :placeholder="$t('time.timezone.choice')">
               <a-option v-for="tz in timezones" :key="tz" :value="tz">
                 {{ tz }}
               </a-option>
             </a-select>
-            <a-button size="medium" @click="currentTz">当前</a-button>
+            <a-button size="medium" @click="currentTz">{{$t('time.timezone.now')}}</a-button>
           </a-space>
           <br/><br/>
           <a-space>
-            <a-typography-text strong>当前的Unix时间戳:</a-typography-text>
+            <a-typography-text strong>{{$t('time.unix')}}:</a-typography-text>
             <a-input :model-value="currentTs" />
-            <a-button size="medium" @click="startCurrentTs">开始</a-button>
-            <a-button size="medium" @click="stopCurrentTs">停止</a-button>
-            <a-button size="medium" @click="refreshCurrentTs">刷新</a-button>
+            <a-button size="medium" @click="startCurrentTs">{{$t('time.start')}}</a-button>
+            <a-button size="medium" @click="stopCurrentTs">{{$t('time.stop')}}</a-button>
+            <a-button size="medium" @click="refreshCurrentTs">{{$t('time.refresh')}}</a-button>
           </a-space>
         </a-card>
         <br/>
-        <a-card title="时间戳转时间（Unix timestamp）">
-          <a-space>
-            <a-typography-text strong>毫秒:</a-typography-text>
-            <a-input v-model="tsToTimeMillSecondOrigin" placeholder="输入你的值..." />
-            <a-input v-model="tsToTimeMillSecondDist" placeholder="结果在这里展示" />
-            <a-button size="medium" type="primary" @click="doTsToTimeMillSecond">转换</a-button>
-            <a-button size="medium" @click="copyTsToTimeMillSecond">复制</a-button>
+        <a-card :title="$t('time.convert.unix')">
+          <a-space align="baseline">
+            <a-typography-text strong>{{$t('time.input.milliseconds')}}:</a-typography-text>
+            <a-input v-model="tsToTimeMillSecondOrigin" :placeholder="$t('time.input.datetime')" />
+            <a-input v-model="tsToTimeMillSecondDist" :placeholder="$t('time.result.placeholder')" />
+            <a-button size="medium" type="primary" @click="doTsToTimeMillSecond">{{$t('convert')}}</a-button>
+            <a-button size="medium" @click="copyTsToTimeMillSecond">{{$t('copy')}}</a-button>
           </a-space>
           <br/><br/>
-          <a-space>
-            <a-typography-text strong>&nbsp;&nbsp;&nbsp;秒:</a-typography-text>
-            <a-input v-model="tsToTimeSecondOrigin" placeholder="输入你的值..." />
-            <a-input v-model="tsToTimeSecondDist" placeholder="结果在这里展示" />
-            <a-button size="medium" type="primary" @click="doTsToTimeSecond">转换</a-button>
-            <a-button size="medium" @click="copyTsToTimeSecond">复制</a-button>
+          <a-space align="baseline">
+            <a-typography-text strong>&nbsp;&nbsp;&nbsp;{{$t('time.input.seconds')}}:</a-typography-text>
+            <a-input v-model="tsToTimeSecondOrigin" :placeholder="$t('time.input.datetime')" />
+            <a-input v-model="tsToTimeSecondDist" :placeholder="$t('time.result.placeholder')" />
+            <a-button size="medium" type="primary" @click="doTsToTimeSecond">{{$t('convert')}}</a-button>
+            <a-button size="medium" @click="copyTsToTimeSecond">{{$t('copy')}}</a-button>
           </a-space>
         </a-card>
         <br/>
-        <a-card title="时间转时间戳（年-月-日 时:分:秒）">
-          <a-space>
-            <a-typography-text strong>毫秒:</a-typography-text>
-            <a-input v-model="timeToTsMillSecondOrigin" placeholder="输入你的值..." />
-            <a-input v-model="timeToTsMillSecondDist" placeholder="结果在这里展示" />
-            <a-button size="medium" type="primary" @click="doTimeToTsMillSecond">转换</a-button>
-            <a-button size="medium" @click="copyTimeToTsMillSecond">复制</a-button>
+        <a-card :title="$t('time.convert.to.timestamp')">
+          <a-space align="baseline">
+            <a-typography-text strong>{{$t('time.input.milliseconds')}}:</a-typography-text>
+            <a-input v-model="timeToTsMillSecondOrigin" :placeholder="$t('time.input.datetime')" />
+            <a-input v-model="timeToTsMillSecondDist" :placeholder="$t('time.result.placeholder')" />
+            <a-button size="medium" type="primary" @click="doTimeToTsMillSecond">{{$t('convert')}}</a-button>
+            <a-button size="medium" @click="copyTimeToTsMillSecond">{{$t('copy')}}</a-button>
           </a-space>
           <br/><br/>
-          <a-space>
-            <a-typography-text strong>&nbsp;&nbsp;&nbsp;秒:</a-typography-text>
-            <a-input v-model="timeToTsSecondOrigin" placeholder="输入你的值..." />
-            <a-input v-model="timeToTsSecondDist" placeholder="结果在这里展示" />
-            <a-button size="medium" type="primary" @click="doTimeToTsSecond">转换</a-button>
-            <a-button size="medium" @click="copyTimeToTsSecond">复制</a-button>
+          <a-space align="baseline">
+            <a-typography-text strong>&nbsp;&nbsp;&nbsp;{{$t('time.input.seconds')}}:</a-typography-text>
+            <a-input v-model="timeToTsSecondOrigin" :placeholder="$t('time.input.datetime')" />
+            <a-input v-model="timeToTsSecondDist" :placeholder="$t('time.result.placeholder')" />
+            <a-button size="medium" type="primary" @click="doTimeToTsSecond">{{$t('convert')}}</a-button>
+            <a-button size="medium" @click="copyTimeToTsSecond">{{$t('copy')}}</a-button>
           </a-space>
         </a-card>
       </a-col>
@@ -74,6 +74,8 @@ import {onUnmounted, ref} from "vue";
 import {Message} from "@arco-design/web-vue";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 
 /** 【start】公共模块*/
 onUnmounted(() => {
@@ -139,7 +141,7 @@ const doTsToTimeMillSecond = () => {
 const copyTsToTimeMillSecond = () => {
   if (!tsToTimeMillSecondDist.value) {return}
   navigator.clipboard.writeText(tsToTimeMillSecondDist.value).then(() => {
-    Message.info('复制成功!')
+    Message.info(`${t('copied')}!`)
   }).catch(err => {console.error("Copy failed:", err);});
 }
 /** 【end】号秒转时间*/
@@ -154,7 +156,7 @@ const doTsToTimeSecond = () => {
 const copyTsToTimeSecond = () => {
   if (!tsToTimeSecondDist.value) {return}
   navigator.clipboard.writeText(tsToTimeSecondDist.value).then(() => {
-    Message.info('复制成功!')
+    Message.info(`${t('copied')}!`)
   }).catch(err => {console.error("Copy failed:", err);});
 }
 /**【end】秒转时间*/
@@ -169,7 +171,7 @@ const doTimeToTsMillSecond = () => {
 const copyTimeToTsMillSecond = () => {
   if (!timeToTsMillSecondDist.value) {return}
   navigator.clipboard.writeText(timeToTsMillSecondDist.value).then(() => {
-    Message.info('复制成功!')
+    Message.info(`${t('copied')}!`)
   }).catch(err => {console.error("Copy failed:", err);});
 }
 /** 【end】时间转毫秒*/
@@ -184,7 +186,7 @@ const doTimeToTsSecond = () => {
 const copyTimeToTsSecond = () => {
   if (!timeToTsSecondDist.value) {return}
   navigator.clipboard.writeText(timeToTsSecondDist.value).then(() => {
-    Message.info('复制成功!')
+    Message.info(`${t('copied')}!`)
   }).catch(err => {console.error("Copy failed:", err);});
 }
 /** 【end】时间转秒*/
