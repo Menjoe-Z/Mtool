@@ -7,10 +7,4 @@
   </a-space>
 </template>
 <script setup lang="ts">
-import useLocale from "../../hooks/locale";
-
-const { changeLocale } = useLocale();
-function changeLanguage(lang: string) {
-  changeLocale(lang);
-}
 </script>
