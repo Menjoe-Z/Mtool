@@ -5,6 +5,7 @@ import '@arco-design/web-vue/dist/arco.css';
 import { createI18n } from 'vue-i18n';
 import zhCN from './locale/zh-CN';
 import enUS from './locale/en-US';
+import storeLanguage from './utils/language-util.ts'
 
 
 const messages = {
@@ -13,7 +14,7 @@ const messages = {
 };
 
 const i18n = createI18n({
-    locale: 'zh-CN',
+    locale: storeLanguage().get(),
     messages,
 });
 

@@ -1,5 +1,7 @@
 export default {
     "settings":"设置",
+    "language":"语言",
+    "about":"关于",
     "copied":"复制成功",
     "copy":"复制",
     "format":"格式",
@@ -52,5 +54,9 @@ export default {
     'strbreak.separator.period': '句号',
     'strbreak.separator.dot': '点',
     'strbreak.separator.brackets': '括号',
+
+    'about.version': '版本',
+    'about.author': '作者',
+    'about.date': '日期',
 
 }

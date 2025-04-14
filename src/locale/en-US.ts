@@ -1,5 +1,7 @@
 export default {
     settings: "Settings",
+    language:"Language",
+    about:"About",
     copied: "Copied",
     copy: "Copy",
     format: "Format",
@@ -52,4 +54,8 @@ export default {
     "strbreak.separator.period": "Period",
     "strbreak.separator.dot": "Dot",
     "strbreak.separator.brackets": "Brackets",
+
+    'about.version': 'Version',
+    'about.author': 'Author',
+    'about.date': 'Date',
 };
