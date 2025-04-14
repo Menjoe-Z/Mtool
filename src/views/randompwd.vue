@@ -5,31 +5,31 @@
         <div></div>
       </a-col>
       <a-col :span="18">
-        <a-card title="密码长度" :bordered="true">
+        <a-card :title="$t('password.length')" :bordered="true">
           <div class="slider-container">
             <span></span>
             <a-slider v-model="length" :min="4" :max="20" show-input />
           </div>
         </a-card><br/>
-        <a-card title="密码格式" :bordered="true">
+        <a-card :title="$t('password.format')" :bordered="true">
           <div >
             <a-space>
-              <a-typography-text>数字:</a-typography-text>
+              <a-typography-text>{{$t('password.format.number')}}:</a-typography-text>
               <a-switch v-model="includeNumbers"></a-switch>
               <a-typography-text></a-typography-text>
-              <a-typography-text>符号:</a-typography-text>
+              <a-typography-text>{{$t('password.format.symbol')}}:</a-typography-text>
               <a-switch v-model="includeSymbols"></a-switch>
             </a-space>
           </div>
         </a-card><br/>
-        <a-card title="生成密码" :bordered="true">
+        <a-card :title="$t('password.generated')" :bordered="true">
           <a-typography-title :heading="6"></a-typography-title>
           <a-input v-model="generatedPassword" readonly size="large" />
         </a-card><br/>
         <a-card :bordered="true">
           <a-space>
-            <a-button type="primary" @click="copyPassword">复制密码</a-button>
-            <a-button @click="generatePassword">刷新密码</a-button>
+            <a-button type="primary" @click="copyPassword">{{$t('password.copy')}}</a-button>
+            <a-button @click="generatePassword">{{$t('password.refresh')}}</a-button>
           </a-space>
         </a-card>
       </a-col>
@@ -40,6 +40,8 @@
 <script setup>
 import { ref } from "vue";
 import {Message } from "@arco-design/web-vue";
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 
 // 绑定数据
 const length = ref(15);
@@ -63,7 +65,7 @@ const generatePassword = () => {
 // 复制密码
 const copyPassword = () => {
   navigator.clipboard.writeText(generatedPassword.value);
-  Message.info('密码已复制！')
+  Message.info(`${t('copied')}!`)
 };
 
 // 初始化

@@ -9,39 +9,39 @@
       >
         <template #first>
           <a-typography-paragraph style="height: 100%; margin: 0; display: flex;">
-            <a-textarea v-model="originText" placeholder="输入原始文本..."/>
+            <a-textarea v-model="originText" :placeholder="$t('strbreak.input.placeholder')"/>
           </a-typography-paragraph>
         </template>
         <template #second>
           <a-typography-paragraph style="height: 100%; margin: 0; display: flex;">
-            <a-textarea :model-value="distText" placeholder="格式化后的文本"/>
+            <a-textarea :model-value="distText" :placeholder="$t('strbreak.output.placeholder')"/>
           </a-typography-paragraph>
         </template>
       </a-split>
     </a-col>
   </a-row>
   <a-row :gutter="24">
-    <a-col :span="8"></a-col>
-    <a-col :span="16">
+    <a-col :span="6"></a-col>
+    <a-col :span="18">
       <a-space>
-        <a-typography-text>分隔符(支持正则): </a-typography-text>
+        <a-typography-text>{{$t('strbreak.separator.label')}}: </a-typography-text>
         <a-select v-model="textSeparator"
-                  placeholder="选择或者输入..."
+                  :placeholder="$t('strbreak.separator.placeholder')"
                   :allow-search="{ retainInputValue: true }"
                   v-model:input-value="newTextSeparator"
-                  style="width: 260px;" allow-clear>
-          <a-option value=" ">空格</a-option>
-          <a-option value="\t">制表符</a-option>
-          <a-option value=",">逗号</a-option>
-          <a-option value=";">分号</a-option>
-          <a-option value="。">句号</a-option>
-          <a-option value="\.">点</a-option>
-          <a-option value="\(">括号(</a-option>
-          <a-option value="\)">括号)</a-option>
+                  style="width: 270px;" allow-clear>
+          <a-option value=" ">{{$t('strbreak.separator.space')}}</a-option>
+          <a-option value="\t">{{$t('strbreak.separator.tab')}}</a-option>
+          <a-option value=",">{{$t('strbreak.separator.comma')}}</a-option>
+          <a-option value=";">{{$t('strbreak.separator.semicolon')}}</a-option>
+          <a-option value="。">{{$t('strbreak.separator.period')}}</a-option>
+          <a-option value="\.">{{$t('strbreak.separator.dot')}}</a-option>
+          <a-option value="\(">{{$t('strbreak.separator.brackets')}}(</a-option>
+          <a-option value="\)">{{$t('strbreak.separator.brackets')}})</a-option>
         </a-select>
-        <a-button @click="formatJson" type="primary">格式</a-button>
-        <a-button @click="clearJson">清除</a-button>
-        <a-button @click="copyToClipboard">复制</a-button>
+        <a-button @click="formatJson" type="primary">{{ $t('format') }}</a-button>
+        <a-button @click="clearJson">{{ $t('clean') }}</a-button>
+        <a-button @click="copyToClipboard">{{ $t('copy') }}</a-button>
       </a-space>
     </a-col>
   </a-row>
@@ -50,6 +50,8 @@
 
 import {ref} from "vue";
 import {Message, Modal} from "@arco-design/web-vue";
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 
 const originText = ref('')
 const textSeparator = ref('')
@@ -72,9 +74,9 @@ const formatJson = () => {
       tempDistText += splitArr[i] + '\n'
     }
   } catch (e) {
-    const errorMessage = e instanceof Error ? e.message : "文本换行失败";
+    const errorMessage = e instanceof Error ? e.message : t('strbreak.error');
     Modal.error({
-      title: "错误提示",
+      title: t('error.alert'),
       content: errorMessage,
     });
     return;
@@ -87,7 +89,7 @@ const copyToClipboard = () => {
     return
   }
   navigator.clipboard.writeText(distText.value).then(() => {
-    Message.info('复制成功!')
+    Message.info(`${t('copied')}!`)
   }).catch(err => {
     console.error("Copy failed:", err);
   });
