@@ -15,10 +15,10 @@
           <div >
             <a-space>
               <a-typography-text>{{$t('password.format.number')}}:</a-typography-text>
-              <a-switch v-model="includeNumbers"></a-switch>
+              <a-switch size="medium" v-model="includeNumbers"></a-switch>
               <a-typography-text></a-typography-text>
               <a-typography-text>{{$t('password.format.symbol')}}:</a-typography-text>
-              <a-switch v-model="includeSymbols"></a-switch>
+              <a-switch size="medium" v-model="includeSymbols"></a-switch>
             </a-space>
           </div>
         </a-card><br/>

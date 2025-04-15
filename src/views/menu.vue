@@ -1,5 +1,5 @@
 <template>
-  <a-config-provider :locale="arcoLocale">
+  <a-config-provider :locale="arcoLocale" size="small">
     <a-tabs
         type="line"
         lazy-load="true"
