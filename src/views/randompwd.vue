@@ -66,6 +66,7 @@ const generatePassword = () => {
 const copyPassword = () => {
   navigator.clipboard.writeText(generatedPassword.value);
   Message.info(`${t('copied')}!`)
+  generatePassword();
 };
 
 // 初始化
