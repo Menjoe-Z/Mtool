@@ -30,9 +30,6 @@ importers:
       '@tauri-apps/cli':
         specifier: ^2
         version: 2.3.1
-      '@types/crypto-js':
-        specifier: ^4.2.2
-        version: 4.2.2
       '@vitejs/plugin-vue':
         specifier: ^5.2.1
         version: 5.2.1(vite@6.2.1)(vue@3.5.13(typescript@5.6.3))
@@ -414,9 +411,6 @@ packages:
     resolution: {integrity: sha512-xewcw/ZsCqgilTy2h7+pp2Baxoy7zLR2wXOV7SZLzkb6SshHVbm1BFAjn8iFATURRW85KLzl6wSGJ2dQHjVHqw==}
     engines: {node: '>= 10'}
     hasBin: true
-
-  '@types/crypto-js@4.2.2':
-    resolution: {integrity: sha512-sDOLlVbHhXpAUAL0YHDUUwDZf3iN4Bwi4W6a0W0b+QcAezUbRtH4FVb+9J4h+XFPW7l/gQ9F8qC7P+Ec4k8QVQ==}
 
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
@@ -884,8 +878,6 @@ snapshots:
       '@tauri-apps/cli-win32-arm64-msvc': 2.3.1
       '@tauri-apps/cli-win32-ia32-msvc': 2.3.1
       '@tauri-apps/cli-win32-x64-msvc': 2.3.1
-
-  '@types/crypto-js@4.2.2': {}
 
   '@types/estree@1.0.6': {}
 
