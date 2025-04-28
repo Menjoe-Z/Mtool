@@ -13,15 +13,15 @@
                 {{ tz }}
               </a-option>
             </a-select>
-            <a-button size="medium" @click="currentTz">{{$t('time.timezone.now')}}</a-button>
+            <a-button @click="currentTz">{{$t('time.timezone.now')}}</a-button>
           </a-space>
           <br/><br/>
           <a-space>
             <a-typography-text strong>{{$t('time.unix')}}:</a-typography-text>
             <a-input :model-value="currentTs" />
-            <a-button size="medium" @click="startCurrentTs">{{$t('time.start')}}</a-button>
-            <a-button size="medium" @click="stopCurrentTs">{{$t('time.stop')}}</a-button>
-            <a-button size="medium" @click="refreshCurrentTs">{{$t('time.refresh')}}</a-button>
+            <a-button @click="startCurrentTs">{{$t('time.start')}}</a-button>
+            <a-button @click="stopCurrentTs">{{$t('time.stop')}}</a-button>
+            <a-button @click="refreshCurrentTs">{{$t('time.refresh')}}</a-button>
           </a-space>
         </a-card>
         <br/>
@@ -30,16 +30,16 @@
             <a-typography-text strong>{{$t('time.input.milliseconds')}}:</a-typography-text>
             <a-input v-model="tsToTimeMillSecondOrigin" :placeholder="$t('time.input.datetime')" />
             <a-input v-model="tsToTimeMillSecondDist" :placeholder="$t('time.result.placeholder')" />
-            <a-button size="medium" type="primary" @click="doTsToTimeMillSecond">{{$t('convert')}}</a-button>
-            <a-button size="medium" @click="copyTsToTimeMillSecond">{{$t('copy')}}</a-button>
+            <a-button type="primary" @click="doTsToTimeMillSecond">{{$t('convert')}}</a-button>
+            <a-button @click="copyTsToTimeMillSecond">{{$t('copy')}}</a-button>
           </a-space>
           <br/><br/>
           <a-space align="baseline">
             <a-typography-text strong>&nbsp;&nbsp;&nbsp;{{$t('time.input.seconds')}}:</a-typography-text>
             <a-input v-model="tsToTimeSecondOrigin" :placeholder="$t('time.input.datetime')" />
             <a-input v-model="tsToTimeSecondDist" :placeholder="$t('time.result.placeholder')" />
-            <a-button size="medium" type="primary" @click="doTsToTimeSecond">{{$t('convert')}}</a-button>
-            <a-button size="medium" @click="copyTsToTimeSecond">{{$t('copy')}}</a-button>
+            <a-button type="primary" @click="doTsToTimeSecond">{{$t('convert')}}</a-button>
+            <a-button @click="copyTsToTimeSecond">{{$t('copy')}}</a-button>
           </a-space>
         </a-card>
         <br/>
@@ -48,16 +48,16 @@
             <a-typography-text strong>{{$t('time.input.milliseconds')}}:</a-typography-text>
             <a-input v-model="timeToTsMillSecondOrigin" :placeholder="$t('time.input.datetime')" />
             <a-input v-model="timeToTsMillSecondDist" :placeholder="$t('time.result.placeholder')" />
-            <a-button size="medium" type="primary" @click="doTimeToTsMillSecond">{{$t('convert')}}</a-button>
-            <a-button size="medium" @click="copyTimeToTsMillSecond">{{$t('copy')}}</a-button>
+            <a-button type="primary" @click="doTimeToTsMillSecond">{{$t('convert')}}</a-button>
+            <a-button @click="copyTimeToTsMillSecond">{{$t('copy')}}</a-button>
           </a-space>
           <br/><br/>
           <a-space align="baseline">
             <a-typography-text strong>&nbsp;&nbsp;&nbsp;{{$t('time.input.seconds')}}:</a-typography-text>
             <a-input v-model="timeToTsSecondOrigin" :placeholder="$t('time.input.datetime')" />
             <a-input v-model="timeToTsSecondDist" :placeholder="$t('time.result.placeholder')" />
-            <a-button size="medium" type="primary" @click="doTimeToTsSecond">{{$t('convert')}}</a-button>
-            <a-button size="medium" @click="copyTimeToTsSecond">{{$t('copy')}}</a-button>
+            <a-button type="primary" @click="doTimeToTsSecond">{{$t('convert')}}</a-button>
+            <a-button @click="copyTimeToTsSecond">{{$t('copy')}}</a-button>
           </a-space>
         </a-card>
       </a-col>

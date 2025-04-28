@@ -6,7 +6,10 @@
       v-model:visible="innerVisible"
       @ok="handleOk"
       @cancel="handleCancel"
-  >
+      :unmount-on-close="true"
+      :closable="true"
+      :hideCancel="true"
+      :footer="true">
     <a-space direction="vertical" fill>
       <a-row>
         <a-col :span="5"></a-col>
@@ -18,7 +21,7 @@
       <a-card :title="$t('about')">
         <about/>
       </a-card>
-  </a-space>
+    </a-space>
   </a-drawer>
 </template>
 <script setup lang="ts">

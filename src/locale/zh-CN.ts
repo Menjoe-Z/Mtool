@@ -59,4 +59,14 @@ export default {
     'about.author': '作者',
     'about.date': '日期',
 
+    'md5.title': 'MD5',
+    'md5.plaintext': '明文',
+    'md5.pleaseInput': '请输入要加密的内容',
+    'md5.hmacKey': '加盐',
+    'md5.hmacKey.placeholder': 'Hmac加密key',
+    'md5.uppercase': '大写',
+    'md5.encrypt': '加密',
+    'md5.result': '结果',
+    'md5.result.placeholder': '结果在这里展示',
+
 }

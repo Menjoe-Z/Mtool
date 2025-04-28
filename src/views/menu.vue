@@ -1,5 +1,5 @@
 <template>
-  <a-config-provider :locale="arcoLocale">
+  <a-config-provider :locale="arcoLocale" size="small">
     <a-tabs
         type="line"
         lazy-load="true"
@@ -21,6 +21,9 @@
       <a-tab-pane key="4" :title="$t('strbreak.title')">
         <Strbreak/>
       </a-tab-pane>
+      <a-tab-pane key="5" :title="$t('md5.title')">
+        <md5/>
+      </a-tab-pane>
     </a-tabs>
     <Settings v-model:visible="showSettings" />
   </a-config-provider>
@@ -37,6 +40,7 @@ import {computed, ref} from "vue";
 import zhCN from "@arco-design/web-vue/es/locale/lang/zh-cn";
 import enUS from "@arco-design/web-vue/es/locale/lang/en-us";
 import {useI18n} from "vue-i18n";
+import Md5 from "./md5.vue";
 
 const { locale} = useI18n();
 const arcoLocale = computed(() => {
