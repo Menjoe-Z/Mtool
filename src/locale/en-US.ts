@@ -1,12 +1,12 @@
 export default {
-    settings: "Settings",
-    language:"Language",
-    about:"About",
-    copied: "Copied",
-    copy: "Copy",
-    format: "Format",
-    clean: "Clear",
-    convert: "Convert",
+    'settings': "Settings",
+    'language':"Language",
+    'about':"About",
+    'copied': "Copied",
+    'copy': "Copy",
+    'format': "Format",
+    'clean': "Clear",
+    'convert': "Convert",
     "error.alert": "Error",
 
     "json.title": "JSON Viewer",
@@ -58,4 +58,15 @@ export default {
     'about.version': 'Version',
     'about.author': 'Author',
     'about.date': 'Date',
+
+    "md5.title": "MD5",
+    "md5.plaintext": "Plaintext",
+    "md5.pleaseInput": "Enter content to encrypt",
+    "md5.hmacKey": "Salt",
+    "md5.hmacKey.placeholder": "Enter Hmac key",
+    "md5.uppercase": "Uppercase",
+    "md5.encrypt": "Encrypt",
+    "md5.result": "Result",
+    "md5.result.placeholder": "Result will be shown here"
+
 };
