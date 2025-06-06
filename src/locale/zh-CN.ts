@@ -69,4 +69,11 @@ export default {
     'md5.result': '结果',
     'md5.result.placeholder': '结果在这里展示',
 
+    'urldencode.title':'URL编解码',
+    'urldencode.input':'输入URL',
+    'urldencode.output':'输出结果',
+    'urldencode.encode':'编码',
+    'urldencode.decode':'解码',
+    'urldencode.swap':'交换',
+
 }

@@ -67,6 +67,13 @@ export default {
     "md5.uppercase": "Uppercase",
     "md5.encrypt": "Encrypt",
     "md5.result": "Result",
-    "md5.result.placeholder": "Result will be shown here"
+    "md5.result.placeholder": "Result will be shown here",
+
+    'urldencode.title': 'URL Encode/Decode',
+    'urldencode.input': 'Input URL',
+    'urldencode.output': 'Output',
+    'urldencode.encode': 'Encode',
+    'urldencode.decode': 'Decode',
+    'urldencode.swap': 'Swap',
 
 };
